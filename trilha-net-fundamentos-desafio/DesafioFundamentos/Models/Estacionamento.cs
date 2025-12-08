@@ -1,76 +1,42 @@
-namespace DesafioFundamentos.Models
+using System;
+using System.Collections.Generic;
+
+class Program
 {
-    public class Estacionamento
+    static void Main()
     {
-        private decimal precoInicial = 0;
-        private decimal precoPorHora = 0;
-        private List<string> veiculos = new List<string>();
+        // Lê uma linha contendo as tarefas separadas por espaço
+        string input = Console.ReadLine();
 
-        public Estacionamento(decimal precoInicial, decimal precoPorHora)
+        // Converte a entrada em uma lista de tarefas
+        List<string> tarefas = new List<string>(input.Split(' '));
+
+        // TODO: Separe as tarefas realizadas ("feito") das tarefas pendentes,
+        //       mantendo a ordem relativa de ambas nas listas.
+        List<string> pendentes = new List<string>();
+        List<string> feitas = new List<string>();
+        foreach (var tarefa in tarefas)
         {
-            this.precoInicial = precoInicial;
-            this.precoPorHora = precoPorHora;
-        }
-
-        public void AdicionarVeiculo()
-        {
-            // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
-            // *IMPLEMENTE AQUI*
-            Console.WriteLine("Digite a placa do veículo para estacionar:");
-            string placa = Console.ReadLine();
-            veiculos.Add(placa);
-            Console.WriteLine("Veículo adicionado com sucesso.");
-        }
-
-        public void RemoverVeiculo()
-        {
-            Console.WriteLine("Digite a placa do veículo para remover:");
-
-            // Pedir para o usuário digitar a placa e armazenar na variável placa
-            // *IMPLEMENTE AQUI*
-            string placaInput = Console.ReadLine();
-            string placa = placaInput;
-            
-            // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (tarefa == "feito")
             {
-                Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
-
-                // TODO: Pedir para o usuário digitar a quantidade de horas que o veículo permaneceu estacionado,
-                // TODO: Realizar o seguinte cálculo: "precoInicial + precoPorHora * horas" para a variável valorTotal                
-                // *IMPLEMENTE AQUI*
-                int horas = int.Parse(Console.ReadLine());
-                decimal valorTotal = precoInicial + precoPorHora * horas;
-
-                // TODO: Remover a placa digitada da lista de veículos
-                // *IMPLEMENTE AQUI*
-                veiculos.Remove(placa);
-
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
+                feitas.Add(tarefa);
             }
             else
             {
-                Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente");
+                pendentes.Add(tarefa);
             }
         }
+        List<string> resultado = new List<string>();
+        resultado.AddRange(pendentes);
+        resultado.AddRange(feitas);
+        Console.WriteLine(string.Join(" ", resultado));
+        // Dica: Percorra todas as tarefas e utilize duas listas diferentes.
 
-        public void ListarVeiculos()
-        {
-            // Verifica se há veículos no estacionamento
-            if (veiculos.Any())
-            {
-                Console.WriteLine("Os veículos estacionados são:");
-                // TODO: Realizar um laço de repetição, exibindo os veículos estacionados
-                // *IMPLEMENTE AQUI*
-                foreach (string placa in veiculos)
-                {
-                    Console.WriteLine(placa);
-                }
-            }
-            else
-            {
-                Console.WriteLine("Não há veículos estacionados.");
-            }
-        }
+        // Após separar, coloque primeiro as pendentes e depois todas as "feito"
+        // List<string> resultado = ... // Monte a lista final aqui
+
+        // Imprime as tarefas reordenadas
+        // Console.WriteLine(string.Join(" ", resultado));
+
     }
 }
