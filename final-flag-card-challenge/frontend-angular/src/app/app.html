@@ -1,0 +1,40 @@
+<div class="main-container">
+  <h1>Validador de Cartão - DIO</h1>
+
+  <div class="credit-card" [ngClass]="statusClass">
+    
+    <div class="card-top">
+      <div class="chip"></div>
+      <div class="brand-logo" *ngIf="resultado">
+        {{ resultado.bandeira }}
+      </div>
+    </div>
+
+    <div class="card-middle">
+      <label for="cardNumber">Número do Cartão</label>
+      <input type="text" 
+             id="cardNumber"
+             class="card-input"
+             [(ngModel)]="numeroCartao" 
+             placeholder="0000 0000 0000 0000"
+             maxlength="19" 
+             (keyup.enter)="verificar()">
+    </div>
+
+    <div class="card-bottom">
+      <div class="card-info">
+        <label>Titular</label>
+        <p>USUÁRIO DIO</p>
+      </div>
+      <div class="card-info expires">
+        <label>Validade</label>
+        <p>12/2025</p>
+      </div>
+    </div>
+
+    <div class="validation-status" *ngIf="resultado">
+      {{ resultado.mensagem }}
+    </div>
+
+  </div> <button class="btn-verificar" (click)="verificar()">Verificar Cartão</button>
+</div>

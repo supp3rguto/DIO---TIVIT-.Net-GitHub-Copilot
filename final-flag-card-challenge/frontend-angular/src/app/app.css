@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.credit-card {
+  width: 400px;
+  height: 250px;
+
+  background: linear-gradient(135deg, #00AEEF, #6B459C, #ED4C67);
+  border-radius: 20px;
+  padding: 25px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.credit-card.status-valido {
+  box-shadow: 0 0 20px #4CAF50;
+  border: 2px solid #4CAF50;
+}
+.credit-card.status-invalido {
+  box-shadow: 0 0 20px #ED4C67;
+  border: 2px solid #ED4C67;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chip {
+  width: 50px;
+  height: 35px;
+  background: linear-gradient(135deg, #e0e0e0, #a0a0a0, #e0e0e0);
+  border-radius: 5px;
+  border: 1px solid #999;
+}
+
+.brand-logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.card-middle label {
+  font-size: 12px;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.card-input {
+  width: 100%;
+  background: transparent; 
+  border: none;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  font-size: 28px;
+  color: white;
+  font-family: 'Share Tech Mono', monospace;
+  letter-spacing: 3px;
+  padding: 5px 0;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.card-input:focus {
+  border-bottom-color: white;
+}
+.card-input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-info label {
+  font-size: 10px;
+  opacity: 0.8;
+  text-transform: uppercase;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.validation-status {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-verificar {
+  margin-top: 30px;
+  padding: 12px 40px;
+  background: linear-gradient(to right, #6B459C, #00AEEF);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-verificar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
